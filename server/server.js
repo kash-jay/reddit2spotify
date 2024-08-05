@@ -109,7 +109,7 @@ app.get("/callback", async (req, res) => {
       try {
         const data = await spotifyApi.searchTracks(songArr[i]);
         const songID = data.body.tracks.items[0].id;
-        console.log("added: " + data.body.tracks.items[0].name);
+        // console.log("added: " + data.body.tracks.items[0].name);
         songIDset.add(songID);
         i++;
       } catch (error) {
@@ -137,7 +137,7 @@ app.get("/create-playlist", async (req, res) => {
   console.log("create-playlist starting");
   let j = 0;
   songIDarr = Array.from(songIDset).map((song) => `spotify:track:${song}`);
-  console.log(songIDarr);
+  // console.log(songIDarr);
   await spotifyApi
     .createPlaylist("Reddit Playlist", {
       description: link,
@@ -152,6 +152,7 @@ app.get("/create-playlist", async (req, res) => {
       }
     );
 
+  console.log("created playlist");
   const addSongsToPlaylist = async () => {
     let batchNum = 1;
     while (j < songIDarr.length) {
@@ -178,7 +179,7 @@ app.get("/create-playlist", async (req, res) => {
 
   songIDset = new Set();
   await addSongsToPlaylist();
-  console.log("added each song to playlist");
+  console.log("added each song to playlist redirecting to playlist");
   res.redirect(`${client}/?playlist_id=${playlistId}`);
 });
 
