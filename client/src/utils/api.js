@@ -15,8 +15,8 @@ export const sendComments = async (
   postDesc,
   link
 ) => {
-  // let api = "https://reddit2spotify-api.onrender.com";
-  let api = "http://localhost:3001";
+  let api = "https://reddit2spotify-api.onrender.com";
+  // let api = "http://localhost:3001";
 
   const body = JSON.stringify({
     subreddit: postSubreddit,

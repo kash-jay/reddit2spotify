@@ -19,9 +19,13 @@ app.use(cors());
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const scopes = ["playlist-modify-public", "playlist-modify-private"];
+// let api = "http://localhost:3001";
+let api = "https://reddit2spotify-api.onrender.com";
+let client = "https://reddit2spotify.vercel.app/";
+// let client = 'http://localhost:5173';
 
 const spotifyApi = new SpotifyWebApi({
-  redirectUri: `https://reddit2spotify-api.onrender.com/callback`,
+  redirectUri: `${api}/callback`,
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
 });
@@ -46,14 +50,18 @@ app.post("/get-songs", async (req, res) => {
 
   const { subreddit, title, description, comments } = req.body;
   link = req.body.link;
-  const songList = await extractSongTitles(subreddit, title, description, comments);
+  const songList = await extractSongTitles(
+    subreddit,
+    title,
+    description,
+    comments
+  );
   // const songList = "slave master, Psycho, baptiize, slave master";
   const arr = songList.split(",");
   songArr = arr.map((str) => str.trim());
 
   res.send(songList);
 });
-
 
 app.get("/spotify-login", (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
@@ -119,7 +127,7 @@ app.get("/callback", async (req, res) => {
 
   await addSongsToSet();
   console.log("added songs to set");
-  res.send('added songs to set');
+  // res.send('added songs to set');
 });
 
 app.get("/create-playlist", async (req, res) => {
@@ -170,7 +178,7 @@ app.get("/create-playlist", async (req, res) => {
   songIDset = new Set();
   await addSongsToPlaylist();
   console.log("added each song to playlist");
-  res.redirect(`http://localhost:5173/?playlist_id=${playlistId}`);
+  res.redirect(`${client}/?playlist_id=${playlistId}`);
 });
 
 app.listen(port, () => {

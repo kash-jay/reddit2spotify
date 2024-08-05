@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-// let api = 'https://reddit2spotify-api.onrender.com';
-let api = 'http://localhost:3001';
+let api = 'https://reddit2spotify-api.onrender.com';
+// let api = 'http://localhost:3001';
 
 const SpotifyButton = () => {
   const [creatingPlaylist, setCreatingPlaylist] = useState(false);
