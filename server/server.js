@@ -130,7 +130,7 @@ app.get("/create-playlist", async (req, res) => {
   songIDarr = Array.from(songIDset).map((song) => `spotify:track:${song}`);
   console.log(songIDarr);
   await spotifyApi
-    .createPlaylist("Reddit Playlist New", {
+    .createPlaylist("Reddit Playlist", {
       description: link,
       public: true,
     })
