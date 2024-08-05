@@ -21,7 +21,7 @@ const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const scopes = ["playlist-modify-public", "playlist-modify-private"];
 
 const spotifyApi = new SpotifyWebApi({
-  redirectUri: `http://localhost:${port}/callback`,
+  redirectUri: `https://reddit2spotify-api.onrender.com/callback`,
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
 });
