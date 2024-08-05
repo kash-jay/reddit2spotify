@@ -6,7 +6,7 @@ import SpotifyPlayer from "./SpotifyPlayer";
 import PostInfo from "./PostInfo";
 
 let params = undefined;
-let api = 'https://reddit2spotify-api.onrender.com';
+let api = "https://reddit2spotify-api.onrender.com";
 // let api = "http://localhost:3001";
 
 const Form = () => {
@@ -29,6 +29,7 @@ const Form = () => {
         title: "",
         desc: "",
       };
+    setHaveRedditInf(true);
     localStorage.removeItem("postInf");
     return JSON.parse(localArr);
   });
