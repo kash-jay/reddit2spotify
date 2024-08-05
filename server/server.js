@@ -127,6 +127,7 @@ app.get("/callback", async (req, res) => {
 
   await addSongsToSet();
   console.log("added songs to set");
+  res.redirect(`${client}`);
   // res.send('added songs to set');
 });
 
