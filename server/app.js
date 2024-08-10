@@ -14,8 +14,8 @@ dotenv.config({
 var client_id = process.env.SPOTIFY_CLIENT_ID;
 var client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 var openai_api_key = process.env.OPENAI_API_KEY;
-var redirect_uri = "http://localhost:3001/callback";
-var frontend = "http://localhost:5173";
+var redirect_uri = "https://reddit2spotify-api.onrender.com/callback";
+var frontend = "https://reddit2spotify.vercel.app";
 
 const openai = new OpenAI({
   apiKey: openai_api_key,

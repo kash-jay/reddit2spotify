@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import RedditSearch from "./components/RedditSearch";
 
-const api = 'http://localhost:3001';
+const api = 'https://reddit2spotify-api.onrender.com';
 
 const getTokensFromUrl = () => {
   return window.location.hash
