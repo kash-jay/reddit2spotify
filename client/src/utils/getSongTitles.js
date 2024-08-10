@@ -18,7 +18,7 @@ Comments:
     prompt: prompt,
   });
 
-  const response = await fetch("http://localhost:3001/get-songs", {
+  const response = await fetch("https://reddit2spotify-api.onrender.com/get-songs", {
     method: "POST",
     body: body,
     headers: {

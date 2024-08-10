@@ -81,8 +81,8 @@ function App() {
         <RedditSearch accessToken={spotifyToken} refreshToken={refreshToken} />
       ) : (
         <div className="w-full h-[100vh] flex justify-center items-center">
-          <a href={`${api}/login`} className="btn btn-success">
-            Log in to spotify
+          <a href={`${api}/login`} className="btn btn-success w-1/5">
+            Login to Spotify
           </a>
         </div>
       )}
